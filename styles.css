@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 1fr 350px;
   gap: 120px;
+  padding-top: 5rem;
 }
 
 @media (max-width: 1000px){.container{
@@ -23,7 +24,7 @@ body {
     Arial, sans-serif; /* clean sans-serif */
   font-size: 16px; /* base = 1 rem */
   line-height: 1.6;
-  padding-top: 3rem;
+  
   color: #333;
 }
 
