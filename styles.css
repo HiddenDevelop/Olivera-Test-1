@@ -1,9 +1,30 @@
+:root {
+  --border-radius: 12px;
+  --card-padding: 32px 28px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  --heading-color: #333;
+  --body-color: #444;
+  --subtle-text: #777;
+  --star-color: #f4a637;
+  --font-stack: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --gap: 2rem;
+}
+
+/* Reset and base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-stack), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body-color);
+}
+
+/* Layout */
 .container {
   width: 85%;
   max-width: 1500px;
@@ -12,81 +33,65 @@
   display: grid;
   grid-template-columns: 1fr 350px;
   gap: 120px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Headings */
+h1,
+h2 {
+  text-align: center;
   margin-top: 2rem;
 }
 
-@media (max-width: 1000px){.container{
-    grid-template-columns: 1fr;
-  }}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif; /* clean sans-serif */
-  font-size: 16px; /* base = 1 rem */
-  line-height: 1.6;
-  
-  color: #333;
-}
-
-/* ============================================================
-   2. Headings (NEW)
-   ============================================================ */
 h1 {
-  font-size: 2rem; /* 32 px */
+  font-size: 2rem;
   line-height: 1.25;
-  margin: 2rem 0 1.25rem;
-  text-align: center;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
-  font-size: 1.5rem; /* 24 px */
+  font-size: 1.5rem;
   line-height: 1.3;
-  margin: 2rem 0 1rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
-img {
-  text-align: center;
-}
-
-/* ============================================================
-   3. Paragraphs outside testimonials (NEW)
-   ============================================================ */
-
+/* Typography */
 p {
-  font-size: 1rem; /* 16 px */
-  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
   text-align: justify;
 }
 
-/* ============================================================
-   4. Testimonial block  (UNCHANGED)
-   ============================================================ */
-/* ---  Layout --- */
+/* Testimonial block */
 .testimonial {
-  max-width: 850px; /* keeps the block from stretching too wide */
-  margin: 2rem auto; /* centers it with space above & below */
-  padding: 1.5rem 2.25rem; /* roomy interior */
-  background: #fafafa; /* very-light grey like in the screenshot */
-  border-left: 6px solid #146135; /* slim green accent bar */
-  border-radius: 4px; /* soft corners */
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 1.5rem 2.25rem;
+  background: #fafafa;
+  border-left: 6px solid #146135;
+  border-radius: 4px;
 }
 
-/* ---  Typography --- */
 .testimonial p {
   margin: 0;
   font: 1.15rem/1.6 Georgia, "Times New Roman", Times, serif;
   font-style: italic;
-  color: #2e2e2e; /* dark grey instead of pure black */
+  color: #2e2e2e;
 }
 
 .author {
-  margin-top: 1.25;
+  margin-top: 1.25rem;
 }
 
+/* Sidebar */
 .sidebar {
   background: white;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   padding: 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   height: fit-content;
@@ -102,6 +107,7 @@ p {
   line-height: 1.3;
 }
 
+/* Product Showcase */
 .product-showcase {
   text-align: center;
   margin: 25px 0;
@@ -118,31 +124,29 @@ p {
   width: 70px;
   height: 70px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 0.9rem;
   z-index: 2;
+  flex-direction: column;
 }
 
 .product-display {
   width: 100%;
   height: 300px;
-
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin-bottom: 15px;
   position: relative;
 }
 
+/* Guarantee Badge */
 .guarantee-badge {
   width: 80px;
   height: 80px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,9 +154,10 @@ p {
   font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  color: #333;
+  color: var(--heading-color);
 }
 
+/* CTA Button */
 .cta-button {
   width: 100%;
   background: #28a745;
@@ -178,6 +183,7 @@ p {
   margin-bottom: 20px;
 }
 
+/* Reviews */
 .reviews-section {
   border-top: 2px solid #e9ecef;
   padding-top: 20px;
@@ -197,15 +203,15 @@ p {
 }
 
 .stars {
-  color: #ffc107;
+  color: var(--star-color);
   font-size: 1.2rem;
   margin-bottom: 5px;
+  gap: 2px;
 }
 
 .rating-text {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
 }
 
 .rating-count {
@@ -249,9 +255,8 @@ p {
   font-weight: 600;
 }
 
-.star-5 {
-  color: #28a745;
-}
+/* Star colors */
+.star-5,
 .star-4 {
   color: #28a745;
 }
@@ -265,25 +270,65 @@ p {
   color: #dc3545;
 }
 
-.fill-90 {
+/* Fill percentages */
+.fill-90,
+.fill-7,
+.fill-2,
+.fill-1 {
   background: #ffc107;
-  width: 90%;
-}
-.fill-7 {
-  background: #ffc107;
-  width: 7%;
-}
-.fill-2 {
-  background: #ffc107;
-  width: 2%;
 }
 .fill-0 {
   background: #e9ecef;
-  width: 0%;
 }
-.fill-1 {
-  background: #ffc107;
-  width: 1%;
+
+.fill-90 { width: 90%; }
+.fill-7  { width: 7%;  }
+.fill-2  { width: 2%;  }
+.fill-1  { width: 1%;  }
+.fill-0  { width: 0%;  }
+
+/* Feature Section */
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.feature-img {
+  flex: 1 1 320px;
+}
+.feature-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.4rem;
+}
+
+.feature-copy {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-copy h2 {
+  margin: 0.2rem 0 1rem;
+  font-size: clamp(1.3rem, 2vw + 0.8rem, 1.5rem);
+}
+
+.feature-copy p {
+  line-height: 1.55;
+  margin: 0.6rem 0;
+  max-width: 55ch;
+  text-align: justify;
+}
+
+.feature-copy strong {
+  font-weight: 600;
 }
 
 .feature-ratings {
@@ -305,66 +350,24 @@ p {
   margin: 10px 0;
 }
 
-.feature-label{
-  flex: 1 1 120px; 
+.feature-label {
+  flex: 1 1 120px;
 }
+
 .feature-stars {
-  color: #ffc107;
-flex: 0 0 110px;             /* fixed-ish width so stars stay together */
-        letter-spacing: 2px;         /* space between stars */
-        font-size: 1.05rem;
+  color: var(--star-color);
+  flex: 0 0 110px;
+  letter-spacing: 2px;
+  font-size: 1.05rem;
 }
 
 .feature-score {
   font-weight: 600;
-  color: #333;
+  color: var(--heading-color);
   width: 2rem;
   text-align: right;
 }
 
-/* ====== Layout ====== */
-.feature-section {
-  display: flex;
-  flex-wrap: wrap; /* lets items stack on small screens                */
-  gap: 2rem; /* space between columns                            */
-  align-items: flex-start; /* top-align image and text                         */
-  max-width: 1200px;
-  margin-inline: auto; /* center the whole section                         */
-  padding: 2rem 1rem;
-}
-
-/* ====== Left column ====== */
-.feature-img {
-  flex: 1 1 320px; /* grow | shrink | starting-width                   */
-}
-.feature-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0.4rem; /* optional: soft corners like your mock-up         */
-}
-
-/* ====== Right column ====== */
-.feature-copy {
-  flex: 1 1 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertically centers text when image gets tall     */
-}
-.feature-copy h2 {
-  margin: 0.2rem 0 1rem;
-  font-size: clamp(1.3rem, 2vw + 0.8rem, 1.5rem);
-}
-.feature-copy p {
-  line-height: 1.55;
-  margin: 0.6rem 0;
-  max-width: 55ch; /* keeps the text column comfortably narrow         */
-}
-.feature-copy strong {
-  font-weight: 600;
-}
-
-/* ====== Mobile tweaks ====== */
 @media (max-width: 768px) {
   .feature-section {
     gap: 1.25rem;
@@ -378,8 +381,7 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
   }
 }
 
-/* ===== BOTTOM ITEMS ==== */
-
+/* Bottom CTA */
 .button-container-2 {
   width: 90%;
   margin: 3rem auto;
@@ -389,7 +391,7 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
 .check-btn-2 {
   width: 100%;
   padding: 25px 10px;
-  background-color: #00d334; /* Bright green */
+  background-color: #00d334;
   border: none;
   border-radius: 15px;
   color: white;
@@ -410,52 +412,32 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
   background-color: #00b32c;
 }
 
-
-
-:root {
-  --border-radius: 12px;
-  --card-padding: 32px 28px;
-  --shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
-  --heading-color: #333;
-  --body-color: #444;
-  --subtle-text: #777;
-  --star-color: #f4a637;
-  --font-stack: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --gap: 32px; /* grid gap & mobile spacing */
-}
-
-
-
-/* ----------  grid container ---------- */
-
-.bottom-container{
-   width: 85%;
+/* Grid Container */
+.bottom-container {
+  width: 85%;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 40px 40px 40px;
+  padding: 0 40px 40px;
 }
-
-
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--gap);
 }
 
-/* make it behave nicely on narrow screens */
 @media (max-width: 980px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .card-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* ----------  card styles ---------- */
+/* Cards */
 .review-card {
   background: #fff;
   border-radius: var(--border-radius);
@@ -463,21 +445,22 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  height: 100%; /* so all cards equal height in grid */
+  height: 100%;
 }
 
 .review-card h2 {
-  margin: 0 0 18px 0;
+  margin-bottom: 18px;
   font-size: 1.25rem;
   font-weight: 600;
   font-style: italic;
   color: var(--heading-color);
 }
+
 .review-card p {
-  margin: 0 0 36px 0;
+  margin-bottom: 36px;
   line-height: 1.55;
   color: var(--body-color);
-  flex: 1; /* pushes footer to the bottom */
+  flex: 1;
 }
 
 .review-footer {
@@ -485,6 +468,7 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
   align-items: center;
   gap: 12px;
 }
+
 .review-footer img.logo {
   width: 24px;
   height: 24px;
@@ -493,22 +477,84 @@ flex: 0 0 110px;             /* fixed-ish width so stars stay together */
   border: 1px solid black;
   object-fit: contain;
 }
-.stars {
-  
-  gap: 2px;
-  font-size: 1.15rem;
-  color: var(--star-color);
-}
+
 .meta {
   margin-left: auto;
   text-align: right;
   line-height: 1.3;
 }
+
 .meta .name {
   font-weight: 600;
   color: var(--heading-color);
 }
+
 .meta .role {
   font-size: 0.85rem;
   color: var(--subtle-text);
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .sidebar {
+    order: 2;
+    margin-top: 2rem;
+  }
+
+  .main-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 1rem;
+    text-align: center;
+  }
+
+  .testimonial {
+    padding: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .feature-section {
+    flex-direction: column;
+    padding: 1.25rem 1rem;
+  }
+
+  .feature-img,
+  .feature-copy {
+    width: 100%;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .feature-copy p {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .product-display {
+    height: auto;
+  }
+
+  .cta-button,
+  .check-btn-2 {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: 1.25rem;
+  }
 }
